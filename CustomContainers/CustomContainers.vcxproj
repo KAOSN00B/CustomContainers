@@ -125,9 +125,11 @@
   <ItemGroup>
     <ClInclude Include="Array.h" />
     <ClInclude Include="ContainerIterator.h" />
+    <ClInclude Include="KDTree.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CustomContainers.cpp" />

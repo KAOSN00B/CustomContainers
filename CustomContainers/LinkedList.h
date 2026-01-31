@@ -1,4 +1,7 @@
-﻿#include <iostream>
+﻿#pragma once
+#include "Vector2.h"
+#include <iostream>
+
 
 struct Node
 {
@@ -81,11 +84,6 @@ void Exercise1LinkedList()
     }
 }
 
-struct Vector2
-{
-    int x = 0;
-    int y = 0;
-};
 struct KDNode
 {
     Vector2 mData;
@@ -181,3 +179,4 @@ void DeleteKDTree(KDNode* node)
         node = nullptr;
     }
 }
+
