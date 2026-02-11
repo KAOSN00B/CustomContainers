@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{557e4204-d1d3-42be-a1c0-424e25ee41a5}</ProjectGuid>
-    <RootNamespace>GraphsExercise</RootNamespace>
+    <ProjectGuid>{b4e8c7e2-a5f6-4d4b-82a7-17e86b6644ab}</ProjectGuid>
+    <RootNamespace>AAPAlgorithms</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,11 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="containerFunctionReminders.h" />
-    <ClInclude Include="MidtermCheatSheet.h" />
+    <ClCompile Include="AAPAlgorithms.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

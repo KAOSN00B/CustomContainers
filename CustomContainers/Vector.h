@@ -155,6 +155,20 @@ public:
         Resize(mSize - 1);
     }
 
+	// just adding to have a function queue, not normally in a vector
+    void PopFront()
+    {
+        assert(mSize > 0);
+
+        for (std::size_t i = 0; i < mSize - 1; ++i)
+        {
+            mValues[i] = mValues[i + 1];
+        }
+
+        --mSize;
+    }
+
+
     T& operator[](std::size_t index)
     {
         assert(index < mSize);
