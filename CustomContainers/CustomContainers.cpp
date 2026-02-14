@@ -1,5 +1,8 @@
 ﻿#include <iostream>
+#include <string>
 #include "Graph.h"
+#include "UnorderedMap.h"
+#include "Globals.h"
 
 void GraphTest()
 {
@@ -261,8 +264,7 @@ void DrawTileMap(int width, int height, const Vector<Tile>& tileMap)
     }
 }
 
-
-int main()
+void VancouverGraphExercise()
 {
     Vector<Tile> tileMap;
     Graph<Tile> tileMapGraph;
@@ -270,7 +272,7 @@ int main()
     std::string input;
     bool isDone = false;
 
-	std::cout << "Tile Map and Pathfinding Example\n\n";
+    std::cout << "Tile Map and Pathfinding Example\n\n";
 
     while (!isDone)
     {
@@ -371,6 +373,101 @@ int main()
         std::cin.ignore();
         isDone = (input == "done");
     }
+}
+
+
+
+
+class Player
+{
+private:
+    std::string _name;
+    int _score;
+
+public:
+    Player(const std::string& name = "", int score = 0)
+        : _name(name), _score(score)
+    {
+    }
+
+    const std::string& GetName() const
+    {
+        return _name;
+    }
+
+    int GetScore() const
+    {
+        return _score;
+    }
+
+    void SetScore(int score)
+    {
+        _score = score;
+    }
+};
+
+
+
+int main()
+{
+    std::cout << "===== VECTOR + SORT TEST =====\n";
+
+    Vector<Player> players;
+
+    players.PushBack(Player("Alice", 90));
+    players.PushBack(Player("Bob", 75));
+    players.PushBack(Player("Charlie", 100));
+    players.PushBack(Player("Dave", 60));
+
+    std::cout << "\nBefore Sorting:\n";
+    for (std::size_t i = 0; i < players.Size(); ++i)
+    {
+        std::cout << players[i].GetName()
+            << " - "
+            << players[i].GetScore()
+            << "\n";
+    }
+
+    std::function<bool(const Player&, const Player&)> sortByScore =
+        [](const Player& a, const Player& b)
+        {
+            return a.GetScore() < b.GetScore();
+        };
+
+    Globals::BubbleSort(players, sortByScore);
+
+    std::cout << "\nAfter BubbleSort (Ascending by Score):\n";
+    for (std::size_t i = 0; i < players.Size(); ++i)
+    {
+        std::cout << players[i].GetName()
+            << " - "
+            << players[i].GetScore()
+            << "\n";
+    }
+
+    std::cout << "\n===== UNORDERED MAP TEST =====\n";
+
+    UnorderedMap<std::string, int> carPrices;
+
+    carPrices.Insert("Ford", 10000);
+    carPrices.Insert("Chevy", 25000);
+    carPrices["Dodge"] = 30000;
+    carPrices["BMW"] = 100000;
+
+    std::cout << "Ford: " << carPrices["Ford"] << "\n";
+    std::cout << "Chevy: " << carPrices["Chevy"] << "\n";
+    std::cout << "Dodge: " << carPrices["Dodge"] << "\n";
+    std::cout << "BMW: " << carPrices["BMW"] << "\n";
+
+    if (carPrices.Has("Ford"))
+        std::cout << "Ford exists in map\n";
+
+    carPrices.Remove("Ford");
+
+    if (!carPrices.Has("Ford"))
+        std::cout << "Ford successfully removed\n";
+
+    std::cout << "\nTotal elements: " << carPrices.GetCount() << "\n";
 
     return 0;
 }
