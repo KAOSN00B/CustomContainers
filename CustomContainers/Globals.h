@@ -3,7 +3,7 @@
 #include <string>
 #include <functional>
 #include "Vector2.h"
-
+#include "Vector.h"
 
 namespace Globals //helps naming confilicts and can reuse this elsewhere
 {
@@ -42,8 +42,8 @@ namespace Globals //helps naming confilicts and can reuse this elsewhere
 		}
 	}
 
-	template<typename T>
-	void BubbleSort(Vector<T>& values, std::function<bool(const T&, const T&)> sortFunc)
+	template<typename T, typename Compare>
+	void BubbleSort(Vector<T>& values, Compare sortFunc)
 	{
 		std::size_t size = values.Size();
 
@@ -58,6 +58,7 @@ namespace Globals //helps naming confilicts and can reuse this elsewhere
 			}
 		}
 	}
+
 
 
 	template<typename T>

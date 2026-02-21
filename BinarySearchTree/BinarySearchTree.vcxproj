@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d51e9c4d-c9a7-4602-a8ca-7fcdc9ffd4ac}</ProjectGuid>
-    <RootNamespace>CustomContainers</RootNamespace>
+    <ProjectGuid>{799954ac-114a-476a-9421-eea2ae8bfb86}</ProjectGuid>
+    <RootNamespace>BinarySearchTree</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,20 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Array.h" />
-    <ClInclude Include="ContainerIterator.h" />
-    <ClInclude Include="Globals.h" />
-    <ClInclude Include="Graph.h" />
-    <ClInclude Include="KDTree.h" />
-    <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="PriorityQueue.h" />
-    <ClInclude Include="UnorderedMap.h" />
-    <ClInclude Include="Vector.h" />
-    <ClInclude Include="Vector2.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="CustomContainers.cpp" />
+    <ClCompile Include="BinarySearchTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
