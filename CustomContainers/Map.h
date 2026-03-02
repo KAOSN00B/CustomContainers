@@ -141,12 +141,12 @@ private:
 		return y;
 	}
 
-	Node* InsertNode(Node* node, KeyValuePair& kv)
+	Node* InsertNode(Node* node, const KeyValuePair& kv)
 	{
 		if (node == nullptr)
 		{
 			Node* node = new Node();
-			node->kvp = std::move(kv);
+			node->kvp = kv;
 			node->left = nullptr;
 			node->right = nullptr;
 			node->height = 0;
@@ -173,26 +173,30 @@ private:
 		node->height = std::max(NodeHeight(node->left), NodeHeight(node->right)) + 1;
 		int balance = GetBalanceFactor(node);
 
-		if (balance > 1 && kv.key < node->left->kvp.key) // because we are returning doesn't need elseif
+		// Left Left
+		if (balance > 1 && kv.key < node->left->kvp.key)
 		{
 			return RotateRight(node);
 		}
+
+		// Right Right
 		if (balance < -1 && kv.key > node->right->kvp.key)
 		{
 			return RotateLeft(node);
 		}
 
+		// Left Right
 		if (balance > 1 && kv.key > node->left->kvp.key)
 		{
-			node->left = RotateLeft(node);
+			node->left = RotateLeft(node->left);
 			return RotateRight(node);
-
 		}
-		if (balance < -1 && kv.key > node->right->kvp.key)
-		{
-			node->right = RotateRight(node);
-			return RotateLeft(node);
 
+		// Right Left
+		if (balance < -1 && kv.key < node->right->kvp.key)
+		{
+			node->right = RotateRight(node->right);
+			return RotateLeft(node);
 		}
 		return node;
 	}
