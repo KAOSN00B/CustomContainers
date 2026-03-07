@@ -124,9 +124,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
+    <ClInclude Include="City.h" />
     <ClInclude Include="ContainerIterator.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="House.h" />
+    <ClInclude Include="MSTGraph.h" />
+    <ClInclude Include="MSTGraphK.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="KDTree.h" />

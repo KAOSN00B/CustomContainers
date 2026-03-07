@@ -60,6 +60,18 @@
     <ClInclude Include="Team.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MSTGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MSTGraphK.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="House.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="City.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CustomContainers.cpp">

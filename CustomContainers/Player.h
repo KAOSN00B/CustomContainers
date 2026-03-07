@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+
 enum Stats
 {
 	Health, 
@@ -10,48 +11,43 @@ enum Stats
 	Count
 
 };
-//Create a class Player
-//a.Player should have a name(std::string is fine)
-//b.Player should have an int Array that contains all of the stats in the enum
-//c.There should be a function to Initialize the player with default values
-//i.Health = 100
-//ii.The rest of the stats are random from 5 - 20
-//iii.AttackCount is 1, each attack reduces it by 1 (at 0, can’t attack)
-//d.Int GetStat(Stats stat)
-//i.Returns the value for the stated stat
-//e.Void SetStat(Stats stat, int value)
-//i.Update a stat
-//f.Bool IsAlive() const
-//i.Returns true if health > 0
+
 class Player
 {
 public:
 	Player()
 	{
 		stats[Health] = 100;
-		stats[Attack] = 5;
-		stats[Speed] = 100;
+		stats[Attack] = 5 + rand() % 16;
+		stats[Speed] = 5 + rand() % 16;
 		stats[AttackCount] = 1;
 	}
 
 	std::string name;
 	int stats[Count];
 
-	int GetStats()
+	int GetStats(Stats stat) const
 	{
-		return stats[Count];
+		if (stat == Speed && stats[Speed] < 0)
+			return 0;
+
+		return stats[stat];
 	}
 
-	void SetStats(Stats stat, int value)
+	void SetStat(Stats stat, int value)
 	{
+		if (value < 0)
+			value = 0;
 
+		stats[stat] = value;
 	}
 
-	bool IsAlive()
+
+	bool IsAlive() const
 	{
-		if (Health <= 0)
+		if (stats[Health] <= 0)
 			return false;
 		else
-			return true
+			return true;
 	}
 };
