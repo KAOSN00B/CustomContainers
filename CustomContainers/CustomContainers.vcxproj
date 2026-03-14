@@ -142,6 +142,7 @@
     <ClInclude Include="UnorderedMap.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="Vector2.h" />
+    <ClInclude Include="WeightedGraph.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CustomContainers.cpp" />

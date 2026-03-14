@@ -72,6 +72,9 @@
     <ClInclude Include="City.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WeightedGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CustomContainers.cpp">

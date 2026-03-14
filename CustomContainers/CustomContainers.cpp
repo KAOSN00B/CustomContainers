@@ -9,6 +9,7 @@
 #include "MSTGraphK.h"
 #include "Team.h"
 #include "City.h"
+#include "WeightedGraph.h"
 
 void Assignment()
 {
@@ -260,17 +261,9 @@ void Assignment6()
     }
 }
 
-//Assignment 7
-//Main flow
-//a.Scenario is you are playing a town sim game
-//b.Create a City
-//c.Populate the city with the houses laid out as in the diagram below
-//d.The units are measured in meters
-//e.Each meter of road costs $10
-//f.What is the cheapest road that can be built to connect all the houses ?
-//g.Print the MST connections for both
-//h.Print the total cost for the road(both methods should be the same)
-int main()
+
+
+void Assignment7()
 {
     City city;
 
@@ -288,7 +281,7 @@ int main()
     city.AddHouse("L", { 220, 70 });
     city.AddHouse("M", { 240, 50 });
 
-	city.ConnectAllHouses();
+    city.ConnectAllHouses();
 
     for (size_t i = 0; i < city.mHouses.Size(); ++i)
     {
@@ -297,11 +290,67 @@ int main()
             << ", " << city.mHouses[i].mPosition.y << ")\n";
     }
 
-	float totalCostPrim = city.GetTotalRoadDistancePrim() * 10;
-	float totalCostKruskal = city.GetTotalRoadDistanceKruskal() * 10;
+    float totalCostPrim = city.GetTotalRoadDistancePrim() * 10;
+    float totalCostKruskal = city.GetTotalRoadDistanceKruskal() * 10;
 
-	std::cout << "Total Road Cost (Prim's Algorithm): $" << totalCostPrim << "\n";
-	std::cout << "Total Road Cost (Kruskal's Algorithm): $" << totalCostKruskal << "\n";
+    std::cout << "Total Road Cost (Prim's Algorithm): $" << totalCostPrim << "\n";
+    std::cout << "Total Road Cost (Kruskal's Algorithm): $" << totalCostKruskal << "\n";
+
+}
+
+//Assignment 7
+//Main flow
+//a.Scenario is you are playing a town sim game
+//b.Create a City
+//c.Populate the city with the houses laid out as in the diagram below
+//d.The units are measured in meters
+//e.Each meter of road costs $10
+//f.What is the cheapest road that can be built to connect all the houses ?
+//g.Print the MST connections for both
+//h.Print the total cost for the road(both methods should be the same)
+
+
+int main()
+{
+    std::cout << "custom weighted Graph\n";
+    Vector<std::string> nodes;
+
+    nodes.PushBack("A");
+    nodes.PushBack("B");
+    nodes.PushBack("C");
+    nodes.PushBack("D");
+    nodes.PushBack("E");
+    
+    WeightedGraph<std::string, int> nodeGraph;
+    for (std::size_t i = 0; i < nodes.Size(); ++i)
+    {
+        nodeGraph.AddItem(&nodes[i]);
+    }
+
+    nodeGraph.AddEdge(0, 1, 9);
+    nodeGraph.AddEdge(0, 2, 5);
+    nodeGraph.AddEdge(0, 3, 2);
+    nodeGraph.AddEdge(1, 3, 6);
+    nodeGraph.AddEdge(1, 4, 5);
+    nodeGraph.AddEdge(2, 3, 4);
+    nodeGraph.AddEdge(2, 4, 5);
+    nodeGraph.AddEdge(3, 4, 4);
+
+
+
+    int startNode = 0;
+    int endNode = 1;
+    std::cout << "Path From: " << nodes[startNode] << " to " << nodes[endNode] << "\n";
+    Vector<const std::string*> pathOutput;
+    int distance = nodeGraph.GetPath(startNode, endNode, pathOutput);
+    for (std::size_t i = 0; i < pathOutput.Size(); ++i)
+    {
+        std::cout << (*pathOutput[i]);
+        std::cout << "-";
+            
+    }
+    std::cout << "\n";
+    std::cout << "Total Distance: " << distance << "\n\n";
 
 
     return 0;
